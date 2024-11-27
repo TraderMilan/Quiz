@@ -26,7 +26,6 @@ public class Main {
         answers4.add("c) 2+2 = 22");
         answers4.add("d) 8^2 = 64");
 
-
         Questions question1 = new Questions("Kolko je 4^3? ", "c", 1, answers1);
         Questions question2 = new Questions("Ako dostaneme 8? ", "ab", 2, answers2);
         Questions question3 = new Questions("8 krat kolko je 64? ", "a", 1, answers3);
@@ -56,8 +55,5 @@ public class Main {
             count++;
         }
         System.out.println("Uspesnost tvojich odpovedi bola: " + playerPoints + " zo 4");
-
-
     }
-
 }

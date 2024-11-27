@@ -9,11 +9,9 @@ public class Quiz {
         this.listOfQuestions = listOfQuestions;
     }
 
-
     public void addQuestion (Questions question){
     listOfQuestions.add(question);
     }
-    //musíme správne vypísať, skontrolovať ci sa hodnoty rovnajú a ci je odpoveď správna
 
     public String checkAnswerType(Questions questions){
         if (questions.getCountOfRightAnswers()> 1){
@@ -28,6 +26,5 @@ public class Quiz {
         for (String option: question.getAnswers()){
             System.out.println(option);
         }
-
     }
 }
