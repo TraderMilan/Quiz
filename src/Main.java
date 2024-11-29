@@ -1,4 +1,5 @@
-import lib.Questions;
+import lib.Answer;
+import lib.Question;
 import lib.Quiz;
 
 import java.util.ArrayList;
@@ -8,36 +9,51 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        ArrayList<String> answers1 = new ArrayList<>();
-        answers1.add("a) 12");
-        answers1.add("b) 16");
-        answers1.add("c) 64");
-        ArrayList<String> answers2 = new ArrayList<>();
-        answers2.add("a) 2^3");
-        answers2.add("b) 4*2");
-        answers2.add("c) 4^2");
-        ArrayList<String> answers3 = new ArrayList<>();
-        answers3.add("a) 8");
-        answers3.add("b) 4");
-        answers3.add("c) 64");
-        ArrayList<String> answers4 = new ArrayList<>();
-        answers4.add("a) 2^0 = 1");
-        answers4.add("b) -5 > -15");
-        answers4.add("c) 2+2 = 22");
-        answers4.add("d) 8^2 = 64");
 
-        Questions question1 = new Questions("Kolko je 4^3? ", "c", 1, answers1);
-        Questions question2 = new Questions("Ako dostaneme 8? ", "ab", 2, answers2);
-        Questions question3 = new Questions("8 krat kolko je 64? ", "a", 1, answers3);
-        Questions question4 = new Questions("Ktory vyraz je pravdivy?", "abd", 3, answers4);
+        Question question1 = new Question("Kolko je 4^3? ", 1, new ArrayList<>(), "c");
+        Question question2 = new Question("Ako dostaneme 8? ", 2, new ArrayList<>(), "ab" );
+        Question question3 = new Question("8 krat kolko je 64? ", 1, new ArrayList<>(), "a");
+        Question question4 = new Question("Ktory vyraz je pravdivy?", 3,new ArrayList<>(), "abd");
 
-        ArrayList<Questions> listOfQuestions = new ArrayList<>();
+        Answer answer1 = new Answer ("a) 12");
+        Answer answer2 = new Answer("b) 16");
+        Answer answer3 = new Answer("c) 64");
+        question1.addAnswer(answer1);
+        question1.addAnswer(answer2);
+        question1.addAnswer(answer3);
+
+        Answer answer1Q2 = new Answer ("a) 2^3");
+        Answer answer2Q2 = new Answer ("b) 4*2");
+        Answer answer3Q2 = new Answer ("c) 4^2");
+        question2.addAnswer(answer1Q2);
+        question2.addAnswer(answer2Q2);
+        question2.addAnswer(answer3Q2);
+
+        Answer answer1Q3 = new Answer ("a) 8");
+        Answer answer2Q3 = new Answer ("b) 4");
+        Answer answer3Q3 = new Answer ("c) 64");
+        question3.addAnswer(answer1Q3);
+        question3.addAnswer(answer2Q3);
+        question3.addAnswer(answer3Q3);
+
+        Answer answer1Q4= new Answer ("a) 2^0 = 1");
+        Answer answer2Q4= new Answer ("b) -5 > -15");
+        Answer answer3Q4 = new Answer ("c) 2+2 = 22");
+        Answer answer4Q4 = new Answer ("d) 8^2 = 64");
+
+        question4.addAnswer(answer1Q4);
+        question4.addAnswer(answer2Q4);
+        question4.addAnswer(answer3Q4);
+        question4.addAnswer(answer4Q4);
+
+        ArrayList<Question> listOfQuestions = new ArrayList<>();
 
         Quiz quiz = new Quiz(listOfQuestions);
-        quiz.addQuestion(question1);
-        quiz.addQuestion(question2);
-        quiz.addQuestion(question3);
-        quiz.addQuestion(question4);
+
+        listOfQuestions.add(question1);
+        listOfQuestions.add(question2);
+        listOfQuestions.add(question3);
+        listOfQuestions.add(question4);
 
         System.out.println("Welcome to Math Quiz! ");
         System.out.println("Can you solve these 4 questions? ");
@@ -49,7 +65,7 @@ public class Main {
 
             System.out.println("Type your guess! ");
             String guess = scanner.nextLine();
-            if (guess.trim().equals(listOfQuestions.get(count).getRightAnswers())) {
+            if (guess.trim().equals(listOfQuestions.get(count).getRightAnswer())) {
                 playerPoints++;
             }
             count++;

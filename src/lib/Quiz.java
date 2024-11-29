@@ -3,17 +3,17 @@ package lib;
 import java.util.ArrayList;
 
 public class Quiz {
-    private final ArrayList<Questions> listOfQuestions;
+    private final ArrayList<Question> listOfQuestions;
 
-    public Quiz(ArrayList<Questions> listOfQuestions) {
+    public Quiz(ArrayList<Question> listOfQuestions) {
         this.listOfQuestions = listOfQuestions;
     }
 
-    public void addQuestion (Questions question){
+    public void addQuestion (Question question){
     listOfQuestions.add(question);
     }
 
-    public String checkAnswerType(Questions questions){
+    public String checkAnswerType(Question questions){
         if (questions.getCountOfRightAnswers()> 1){
             return " (viacero odpovedi je spravnych)";
         } else {
@@ -21,10 +21,10 @@ public class Quiz {
         }
     }
 
-    public void printQuestion (Questions question){
+    public void printQuestion (Question question){
         System.out.println(question.getQuestion()+checkAnswerType(question));
-        for (String option: question.getAnswers()){
-            System.out.println(option);
+        for (Answer option: question.getAnswers()){
+            System.out.println(option.getAnswer());
         }
     }
 }
